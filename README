@@ -1,0 +1,78 @@
+/*
+ * README file for project 3
+ */
+
+///////// Team member's name and contributions //////////////////////
+Team member #1: Mitchel Downey
+Contributions: TrafficDelay.cpp, makefile, README
+Percentage of contributions: 100%
+
+
+
+
+/////// Thread information /////////////////////////////////////////
+Total threads: 3
+
+[Thread #1]
+  --> Task: producer that produces cars going north
+  --> Thread function name: NCarThread
+
+[Thread #2]
+  --> Task: producer that produces cars going south
+  --> Thread function name: SCarThread
+
+[Thread #3]
+  --> Task: consumer that consumes cars
+  --> Thread function name: FlaggerThread
+
+..............
+
+
+
+////// Semaphores ////////////////////////////////////////////////
+Number of semaphores: 1
+
+[Sempahore #1]
+  --> Variable: carSem
+  --> Initial value: 0
+  --> Purpose: make FlaggerThread blocked upon there being no cars in either queue.
+
+............
+
+
+
+////// Mutex lock ///////////////////////////////////////////////
+Number of mutex locks: 1
+
+[Mutex lock #1]
+  --> Variable: carHolderLock
+  --> Purpose: avoid race condition on shared data numCars, maxCars, createdCars, carThreadsActive, queue northCars, queue southCars
+
+............
+
+
+///// Strengths  ////////////////////////////////////////////////
+
+This program handles the multithreaded synchronization of 3 threads using a single semaphore
+and mutex lock, following the producer/consumer model (2 producers, one consumer).  
+
+
+
+
+
+
+
+//// Weaknesses ///////////////////////////////////////////////
+
+The provided method “pthread_sleep” does not work for my program. I copied and pasted it exactly
+as-is from the documentation(Project3.pdf) and used it according to specification. All compilation
+and testing was done on cs1.seattleu.edu, using the makefile included with this submission. I
+honestly have no idea why the function fails to sleep the threads, and hours of trial and error
+could not make it work. 
+
+
+
+
+
+
+
